@@ -19,17 +19,20 @@ class HouseInfoEntity with _$HouseInfoEntity {
     required int dailyPrice,
   }) = _HouseInfoEntity;
 
-  factory HouseInfoEntity.fromJson(Map<String, dynamic> json) => HouseInfoEntity(
-        id: '${json['id'] as int}',
-        name: json['name'] as String,
-        location: json['location'] as String,
-        description: json['description'] as String,
-        type: HouseType.deserialize(json['type'] as String),
-        rating: json['rating'] as int,
-        reviewsCount: json['review_count'] as int,
-        imageUrls: (json['images'] as List).map((e) => e as String).toList(),
-        dailyPrice: json['price'] as int,
-      );
+  factory HouseInfoEntity.fromJson(Map<String, dynamic> json) {
+    // здесь не используется arrow syntax для того, чтобы freezed не генерировал код для парсинга модели из json
+    return HouseInfoEntity(
+      id: '${json['id'] as int}',
+      name: json['name'] as String,
+      location: json['location'] as String,
+      description: json['description'] as String,
+      type: HouseType.deserialize(json['type'] as String),
+      rating: json['rating'] as int,
+      reviewsCount: json['review_count'] as int,
+      imageUrls: (json['images'] as List).map((e) => e as String).toList(),
+      dailyPrice: json['price'] as int,
+    );
+  }
 
   bool get haveImages => imageUrls.isNotEmpty;
 
