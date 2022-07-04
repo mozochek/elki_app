@@ -2,6 +2,7 @@ import 'package:elki_app/modules/core/presentation/l10n/app_localizations.dart';
 import 'package:elki_app/modules/core/presentation/scopes/dependencies_scope.dart';
 import 'package:elki_app/modules/core/presentation/scopes/repositories_scope.dart';
 import 'package:elki_app/modules/core/presentation/theme/app_theme.dart';
+import 'package:elki_app/modules/core/presentation/theme/themes.dart';
 import 'package:elki_app/modules/rent/modules/available_houses/presentation/available_houses_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,10 +26,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Elki App',
       onGenerateTitle: (context) => AppLocalizations.of(context).appName,
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFF9F9F9),
-        primarySwatch: Colors.blue,
-      ),
+      theme: Themes.defaultTheme,
       builder: (context, child) {
         return AppTheme(
           child: DependenciesScope(
