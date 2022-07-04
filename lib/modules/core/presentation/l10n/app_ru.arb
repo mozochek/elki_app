@@ -1,0 +1,19 @@
+{
+  "@@locale": "ru",
+  "appName": "Ёлки",
+  "oFrame": "O-frame",
+  "aFrame": "A-frame",
+  "allHouses": "Все дома",
+  "unknown": "Неизвестный",
+  "failedToGetImage": "Не удалось получить изображение",
+  "noImages": "Нет изображений",
+  "descriptionIsMissing": "Описание отсутствует",
+  "dayAbbr": "сут.",
+  "back": "Назад",
+  "reviewsPlural": "{amount, plural, =1{{amount} отзыв}, =few{{amount} отзыва}, =other{{amount} отзывов}}",
+  "@reviewsPlural": {
+    "placeholders": {
+      "amount": {}
+    }
+  }
+}
