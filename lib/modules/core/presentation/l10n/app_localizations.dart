@@ -152,6 +152,12 @@ abstract class AppLocalizations {
   /// **'Назад'**
   String get back;
 
+  /// No description provided for @errorHasOccurred.
+  ///
+  /// In ru, this message translates to:
+  /// **'Произошла ошибка'**
+  String get errorHasOccurred;
+
   /// No description provided for @reviewsPlural.
   ///
   /// In ru, this message translates to:

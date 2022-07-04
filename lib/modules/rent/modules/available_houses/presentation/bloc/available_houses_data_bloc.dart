@@ -39,6 +39,9 @@ class AvailableHousesDataBloc extends Bloc<AvailableHousesDataEvent, AvailableHo
               },
             );
           },
+          setError: (event) {
+            emit(AvailableHousesDataState.error(reason: event.reason));
+          },
         );
       },
     );
@@ -58,6 +61,8 @@ class AvailableHousesDataEvent with _$AvailableHousesDataEvent {
   const factory AvailableHousesDataEvent.setData(List<HouseInfoEntity> data) = _AvailableHousesDataEventSetData;
 
   const factory AvailableHousesDataEvent.applyFilter(HouseFilterEntity filter) = _AvailableHousesDataEventApplyFilter;
+
+  const factory AvailableHousesDataEvent.setError(String reason) = _AvailableHousesDataEventSetError;
 }
 
 @freezed
@@ -71,4 +76,8 @@ class AvailableHousesDataState with _$AvailableHousesDataState {
     required List<HouseInfoEntity> dataToDisplay,
     HouseFilterEntity? lastAppliedFilter,
   }) = _AvailableHousesDataStateData;
+
+  const factory AvailableHousesDataState.error({
+    required String reason,
+  }) = _AvailableHousesDataStateError;
 }

@@ -10,6 +10,7 @@
   "descriptionIsMissing": "Описание отсутствует",
   "dayAbbr": "сут.",
   "back": "Назад",
+  "errorHasOccurred": "Произошла ошибка",
   "reviewsPlural": "{amount, plural, =1{{amount} отзыв}, =few{{amount} отзыва}, =other{{amount} отзывов}}",
   "@reviewsPlural": {
     "placeholders": {

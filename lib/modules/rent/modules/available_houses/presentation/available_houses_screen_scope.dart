@@ -33,6 +33,7 @@ class AvailableHousesScreenScope extends StatelessWidget {
           // когда loading bloc успешно выполоняет загрузку списка домов,
           // обновляем текущий список домов в data bloc'е и применяем к спику текущий фильтр
           completed: (state) => AvailableHousesScreenScope.setData(context, state.data),
+          failed: (state) => AvailableHousesScreenScope.setError(context),
         ),
         child: BlocListener<AvailableHousesFilterBloc, AvailableHousesFilterState>(
           listenWhen: (prev, curr) => prev.filter != curr.filter,
@@ -59,4 +60,7 @@ class AvailableHousesScreenScope extends StatelessWidget {
 
   static void applyFilter(BuildContext context, HouseFilterEntity filter) =>
       dataBlocOf(context).add(AvailableHousesDataEvent.applyFilter(filter));
+
+  static void setError(BuildContext context) =>
+      dataBlocOf(context).add(const AvailableHousesDataEvent.setError('other'));
 }

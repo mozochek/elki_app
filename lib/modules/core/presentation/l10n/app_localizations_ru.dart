@@ -38,6 +38,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get back => 'Назад';
 
   @override
+  String get errorHasOccurred => 'Произошла ошибка';
+
+  @override
   String reviewsPlural(num amount) {
     return intl.Intl.pluralLogic(
       amount,

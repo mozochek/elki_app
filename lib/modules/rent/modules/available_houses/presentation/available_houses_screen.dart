@@ -32,6 +32,9 @@ class AvailableHousesScreen extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   );
                 },
+                error: (state) {
+                  return _ErrorWidget(reason: state.reason);
+                },
                 data: (state) {
                   final housesInfoList = state.dataToDisplay;
 
@@ -211,6 +214,36 @@ class _HouseTypeButton extends StatelessWidget {
     if (type == null) return AppLocalizations.of(context).allHouses.toLowerCase();
 
     return type!.toL10n(context);
+  }
+}
+
+class _ErrorWidget extends StatelessWidget {
+  final String reason;
+
+  const _ErrorWidget({
+    required this.reason,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
+
+    return Center(
+      child: Text(
+        _mapReasonToL10n(context),
+        style: appTheme.textTheme.commonText.copyWith(
+          color: appTheme.colorsScheme.black,
+        ),
+      ),
+    );
+  }
+
+  String _mapReasonToL10n(BuildContext context) {
+    switch (reason) {
+      default:
+        return AppLocalizations.of(context).errorHasOccurred;
+    }
   }
 }
 
