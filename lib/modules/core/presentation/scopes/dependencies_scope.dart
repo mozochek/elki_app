@@ -44,7 +44,13 @@ class _DependenciesScopeState extends State<DependenciesScope> {
     super.initState();
 
     _store = DependenciesStore(
-      dio: Dio()..options = BaseOptions(baseUrl: 'https://elki.rent/'),
+      dio: Dio()
+        ..options = BaseOptions(
+          baseUrl: 'https://elki.rent/',
+          connectTimeout: 7000,
+          sendTimeout: 7000,
+          receiveTimeout: 7000,
+        ),
     );
   }
 

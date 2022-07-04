@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mozochek.elki_app">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="elki_app"
+        android:label="@string/appName"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

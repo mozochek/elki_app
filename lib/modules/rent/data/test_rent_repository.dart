@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:elki_app/modules/rent/domain/i_rent_repository.dart';
+import 'package:elki_app/modules/rent/domain/entity/house_info_entity.dart';
+import 'package:elki_app/modules/rent/domain/repository/i_rent_repository.dart';
 
 class TestRentRepository implements IRentRepository {
   final Dio _dio;
@@ -9,8 +10,9 @@ class TestRentRepository implements IRentRepository {
   }) : _dio = dio;
 
   @override
-  Future<void> fetchAvailableHouses() async {
-    final response = await _dio.get('test/house.json');
-    print(response.data);
+  Future<List<HouseInfoEntity>> fetchAvailableHouses() async {
+    final response = await _dio.get<List>('test/house.json');
+
+    return response.data!.map((e) => HouseInfoEntity.fromJson(e as Map<String, dynamic>)).toList();
   }
 }

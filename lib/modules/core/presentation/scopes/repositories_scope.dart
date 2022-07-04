@@ -1,6 +1,6 @@
 import 'package:elki_app/modules/core/presentation/scopes/dependencies_scope.dart';
 import 'package:elki_app/modules/rent/data/test_rent_repository.dart';
-import 'package:elki_app/modules/rent/domain/i_rent_repository.dart';
+import 'package:elki_app/modules/rent/domain/repository/i_rent_repository.dart';
 import 'package:flutter/material.dart';
 
 @immutable
@@ -22,6 +22,16 @@ class RepositoriesScope extends StatefulWidget {
 
   @override
   State<RepositoriesScope> createState() => _RepositoriesScopeState();
+
+  static RepositoriesStore of(BuildContext context) {
+    final inhWidget = context.findAncestorWidgetOfExactType<_RepositoriesInhScope>();
+
+    if (inhWidget is! _RepositoriesInhScope) {
+      throw Exception('_RepositoriesInhScope was not found above \'${context.widget}\' widget.');
+    }
+
+    return inhWidget.store;
+  }
 }
 
 class _RepositoriesScopeState extends State<RepositoriesScope> {
